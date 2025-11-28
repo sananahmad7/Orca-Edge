@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Hero = () => {
   return (
-    <section className="relative w-full max-h-[75vh] bg-slate-900 overflow-hidden flex items-center justify-center font-sans text-white py-20">
+    <section className="relative w-full max-h-[75vh] bg-slate-900 overflow-hidden flex items-center justify-center font-nunito text-white py-20">
       {/* 1. Background Image Area */}
       {/* The user will add an aqua blue image here. */}
       <div className="absolute inset-0 z-0">
@@ -19,7 +19,7 @@ const Hero = () => {
         />
         {/* CRITICAL OVERLAY: This ensures white text is visible on a bright aqua background */}
         {/* We use a gradient: Darker on the left (text area), more transparent on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/60 to-black/10 mix-blend-multiply" />
         <div className="absolute inset-0 bg-black/40" />{" "}
         {/* Extra layer for uniform dimming if needed */}
       </div>
@@ -36,7 +36,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 container  mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container   mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Column: Typography */}
         <div className=" space-y-4 md:space-y-6 2xl:space-y-8 2xl:max-w-2xl">
           {/* Badge: Technical Label Style */}
@@ -51,7 +51,7 @@ const Hero = () => {
             Powering Your <br />
             Digital Presence with a{" "}
             {/* Using a bright teal that stands out against the dark overlay */}
-            <span className="text-[#00ffdf] relative inline-block">
+            <span className="text-[#00bda5] relative inline-block">
               Sharper Edge
             </span>
           </h1>
@@ -66,12 +66,12 @@ const Hero = () => {
 
           {/* CTA Group: Solid, geometric buttons */}
           <div className="flex flex-col sm:flex-row gap-5 xl:pt-4">
-            <button className="px-3 xl:px-8 py-3 bg-[#00ffdf] text-black font-bold rounded-sm hover:bg-white transition-colors duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(0,255,223,0.2)]">
+            <button className="px-3 xl:px-8 py-3 bg-[#009f8b] cursor-pointer text-black font-bold rounded-sm hover:text-white transition-colors duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(0,255,223,0.2)]">
               <span>Let’s Build Something Exceptional</span>
               <FaArrowRight className="w-3 h-3" />
             </button>
 
-            <button className="px-8 py-3 rounded-sm border border-slate-400 text-slate-100 font-medium hover:text-white hover:border-[#00ffdf] hover:bg-[#00ffdf]/10 transition-colors duration-300 backdrop-blur-sm">
+            <button className="px-8 py-3 rounded-sm border border-slate-400 cursor-pointer text-slate-100 font-medium hover:text-white hover:border-[#00ffdf] hover:bg-[#00ffdf]/10 transition-colors duration-300 backdrop-blur-sm">
               Book a Free Consultation
             </button>
           </div>

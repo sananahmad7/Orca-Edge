@@ -51,7 +51,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Services
+                SERVICES
               </button>
 
               {/* Dropdown */}
@@ -83,7 +83,7 @@ export default function Navbar() {
         <div className="hidden items-center md:flex">
           <Link
             href="/contact"
-            className="rounded-full bg-[#00ffdf] px-5 font-nunito text-sm py-2 text-[11px] font-semibold tracking-[0.25em] text-[#003144] uppercase shadow-sm transition-colors hover:bg-[#00d8bd]"
+            className="rounded-full bg-[#00d8bd] px-5 font-nunito text-sm py-2 text-[11px] font-semibold tracking-[0.25em] text-[#003144] uppercase shadow-sm transition-colors hover:bg-[#009f8b]"
           >
             Book a free consultation
           </Link>

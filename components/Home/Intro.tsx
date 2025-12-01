@@ -3,7 +3,7 @@ import { themeClasses } from "@/lib/themeClasses";
 function Intro() {
   return (
     <section className="bg-white font-nunito py-22 lg:py-28">
-      <div className="container mx-auto px-15 3xl:px-10 ">
+      <div className="container mx-auto px-4 md:px-8 ">
         {/* Layout: items-stretch ensures both columns are equal height */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left Card: Content (Transparent BG, Light Theme) */}

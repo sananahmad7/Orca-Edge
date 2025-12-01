@@ -1,3 +1,5 @@
+import { themeClasses } from "@/lib/themeClasses";
+
 function Intro() {
   return (
     <section className="bg-white font-nunito py-22 lg:py-28">
@@ -36,7 +38,9 @@ function Intro() {
           {/* Right Card: Content (Solid BG #00ffdf) */}
 
           <div className="h-full">
-            <div className="h-full bg-[#009f8b] rounded-sm p-8 md:p-12 lg:p-14 flex flex-col justify-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div
+              className={`h-full ${themeClasses.sectionBg} rounded-sm p-8 md:p-12 lg:p-14 flex flex-col justify-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"`}
+            >
               {/* Subtle Texture Overlay for the card */}
               <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-multiply"></div>
 

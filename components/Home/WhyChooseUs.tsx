@@ -3,7 +3,6 @@ import type { FC, ReactNode } from "react";
 import {
   LuTarget,
   LuLayers,
-  LuBarChart3,
   LuMessageSquare,
   LuHandshake,
   LuLifeBuoy,
@@ -88,7 +87,7 @@ const WhyChooseUs: FC = () => {
           {reasons.map((reason) => (
             <div key={reason.id} className="text-center">
               {/* Icon Circle (smaller, leaner) */}
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-[#009f8b]/30 bg-slate-50 text-xl shadow-sm">
+              <div className="mx-auto mb-4 flex h-18 w-18 items-center justify-center rounded-full border border-[#009f8b]/30 bg-slate-50 text-xl shadow-sm">
                 {reason.icon}
               </div>
 

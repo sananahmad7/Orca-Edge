@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 container px-15 3xl:px-10  mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container px-0 sm:px-4 3xl:px-10  mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Column: Typography */}
         <div className=" space-y-4 md:space-y-6 2xl:space-y-8 2xl:max-w-2xl">
           {/* Badge: Technical Label Style */}

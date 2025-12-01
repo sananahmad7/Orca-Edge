@@ -2,7 +2,7 @@
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 import LordIcon from "../LordIcon";
-
+import { themeClasses } from "@/lib/themeClasses";
 type Service = {
   id: string;
   title: string;
@@ -82,9 +82,9 @@ const services: Service[] = [
 const CoreServices: FC = () => {
   return (
     <section
-      className="font-nunito bg-[#009f8b] py-16
+      className={`font-nunito ${themeClasses.sectionBg} py-16
                  bg-[linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)]
-                 bg-[length:40px_40px]"
+                 bg-[length:40px_40px]`}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="mb-10 text-center text-gray-900">

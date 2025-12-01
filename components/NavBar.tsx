@@ -70,7 +70,7 @@ export default function Navbar() {
 
             <li>
               <Link
-                href="/about"
+                href="/aboutUs"
                 className="transition-colors text-sm font-nunito hover:text-[#00ffdf]"
               >
                 About
@@ -170,7 +170,7 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/aboutUs"
                   className="block py-2 text-white/90 hover:text-[#00ffdf]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

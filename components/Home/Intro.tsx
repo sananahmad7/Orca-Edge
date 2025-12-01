@@ -1,7 +1,7 @@
 function Intro() {
   return (
-    <section className="bg-white font-nunito py-20 lg:py-24 border-b border-slate-100">
-      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+    <section className="bg-white font-nunito py-22 lg:py-28">
+      <div className="container mx-auto px-15 3xl:px-10 ">
         {/* Layout: items-stretch ensures both columns are equal height */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left Card: Content (Transparent BG, Light Theme) */}

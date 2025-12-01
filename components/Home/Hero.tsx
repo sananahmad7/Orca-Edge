@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 container   mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container px-15 3xl:px-10  mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Column: Typography */}
         <div className=" space-y-4 md:space-y-6 2xl:space-y-8 2xl:max-w-2xl">
           {/* Badge: Technical Label Style */}
@@ -47,8 +47,7 @@ const Hero = () => {
 
           {/* Headline: Editorial Style with High Contrast */}
           <h1 className="text-4xl md:text-4xl 2xl:text-5xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg">
-            Powering Your <br />
-            Digital Presence with a{" "}
+            Powering You Digital Presence with a{" "}
             {/* Using a bright teal that stands out against the dark overlay */}
             <span className="text-[#00bda5] relative inline-block">
               Sharper Edge
@@ -56,7 +55,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheadline: Clean Swiss Style */}
-          <p className="text-base xl:text-lg text-slate-200 leading-relaxed max-w-lg drop-shadow-md font-light">
+          <p className="text-base xl:text-lg text-slate-200 leading-relaxed max-w-xl drop-shadow-md font-light">
             Orca Edge is a full-service digital agency delivering
             high-performing websites, mobile apps, digital marketing, and
             copywriting that help brands grow with clarity, confidence, and

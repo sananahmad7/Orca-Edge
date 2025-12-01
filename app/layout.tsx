@@ -1,5 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
+
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import { Geist, Geist_Mono, Nunito } from "next/font/google";
@@ -36,6 +38,10 @@ export default function RootLayout({
       // 👆 put font variables on <html>
     >
       <body className="antialiased">
+        <Script
+          src="https://cdn.lordicon.com/lordicon.js"
+          strategy="beforeInteractive"
+        />
         <Navbar />
         {children}
       </body>

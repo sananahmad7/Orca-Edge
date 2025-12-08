@@ -1,6 +1,8 @@
 import Hero from "@/components/services/Hero";
 import WhatWeBuild from "@/components/services/WhatWeBuild";
 import ServiceProcess, { ProcessStep } from "@/components/services/OurProcess";
+import WhyWorkWithUs from "@/components/services/WhyWorkWithUs";
+import CTA from "@/components/services/CTA";
 
 // 1. Define the data object
 const mobileAppProcess: ProcessStep[] = [
@@ -68,6 +70,12 @@ const mobileCapabilities = [
       "Continuous monitoring, bug fixes, feature enhancements, and OS compatibility updates.",
   },
 ];
+const mobileBenefitsData = [
+  "Clear technical documentation and architecture",
+  "Attention to both UX details and backend stability",
+  "Transparent progress updates and milestone reviews",
+  "Long-term partnership mindset for scaling and improvements",
+];
 function MobileDev() {
   return (
     <div>
@@ -80,6 +88,16 @@ function MobileDev() {
       <ServiceProcess
         title="Our Mobile App Development Process"
         steps={mobileAppProcess}
+      />
+      <WhyWorkWithUs
+        title="Benefits of Working with Orca Edge"
+        benefits={mobileBenefitsData}
+      />
+      <CTA
+        heading="Have an app idea—or an existing app that needs improvement?"
+        subtext="Let Orca Edge help you bring it to life."
+        buttonText="Schedule a Mobile App Discovery Call"
+        buttonLink="/contact"
       />
     </div>
   );

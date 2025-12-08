@@ -2,6 +2,8 @@
 import Hero from "@/components/services/Hero";
 import WhatWeBuild from "@/components/services/WhatWeBuild";
 import ServiceProcess, { ProcessStep } from "@/components/services/OurProcess";
+import WhyWorkWithUs from "@/components/services/WhyWorkWithUs";
+import CTA from "@/components/services/CTA";
 
 const webDevProcess: ProcessStep[] = [
   {
@@ -67,7 +69,14 @@ export const webCapabilities = [
       "Ongoing updates, security patches, backups, and technical support to keep your site healthy and secure.",
   },
 ];
-
+const webDevBenefits = [
+  "Strategic, not template-driven, design",
+  "Clean, scalable, and maintainable code",
+  "Focus on SEO basics and technical performance",
+  "Clear timelines and consistent communication",
+  "Post-launch support and optimization options",
+  "Long-term partnership mindset for scaling and improvements",
+];
 export default function WebDevelopmentPage() {
   return (
     <div>
@@ -80,6 +89,15 @@ export default function WebDevelopmentPage() {
       <ServiceProcess
         title="Our Web Development Process"
         steps={webDevProcess}
+      />
+      <WhyWorkWithUs
+        title="Why Clients Choose Orca Edge for Web Development"
+        benefits={webDevBenefits}
+      />
+      <CTA
+        heading="Ready for a website that actually works for your business?"
+        subtext="Talk to Orca Edge about your web project today."
+        buttonText="Book a Free Consultation"
       />
     </div>
   );

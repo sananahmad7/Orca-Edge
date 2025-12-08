@@ -19,7 +19,7 @@ const ServiceProcess: FC<ServiceProcessProps> = ({ title, steps }) => {
 
       <div className="container relative mx-auto px-4 md:px-8">
         {/* Section Title */}
-        <div className="mb-20 md:mb-32 text-center max-w-3xl mx-auto">
+        <div className="mb-20 md:mb-32 text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
             {title}
           </h2>
@@ -27,7 +27,7 @@ const ServiceProcess: FC<ServiceProcessProps> = ({ title, steps }) => {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-6xl ">
           {/* Central Axis Line */}
           <div className="absolute left-8 top-0 h-full w-[2px] bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200 md:left-1/2 md:-translate-x-1/2"></div>
 
@@ -51,7 +51,7 @@ const ServiceProcess: FC<ServiceProcessProps> = ({ title, steps }) => {
                   {/* MAIN CARD SIDE */}
                   <div className={`pl-20 md:pl-0 w-full md:w-[45%]`}>
                     <div
-                      className={`relative group bg-white rounded-2xl p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-[#009f8b]/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,159,139,0.1)] ${
+                      className={`relative group bg-white rounded-sm p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-[#009f8b]/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,159,139,0.1)] ${
                         isEven ? "md:text-right" : "md:text-left"
                       }`}
                     >

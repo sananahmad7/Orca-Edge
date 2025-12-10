@@ -21,7 +21,7 @@ const HERO_DESCRIPTION =
   "Design catches attention. Words close the deal. At Orca Edge, our copywriting services help you communicate your value clearly, build trust, and inspire action across all your digital touchpoints.";
 
 // TODO: Replace with your actual asset path
-const HERO_IMAGE_SRC = "/images/services/copywriting-hero.png";
+const HERO_IMAGE_SRC = "/CW.png";
 
 const COPYWRITING_CAPABILITIES = [
   {

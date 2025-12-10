@@ -76,6 +76,16 @@ export default function Navbar() {
                 About
               </Link>
             </li>
+
+            {/* Contact button (desktop nav) */}
+            <li>
+              <Link
+                href="/contact"
+                className="transition-colors text-sm font-nunito hover:text-[#00ffdf]"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -175,6 +185,16 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About
+                </Link>
+              </li>
+              {/* Contact button (mobile nav) */}
+              <li>
+                <Link
+                  href="/contact"
+                  className="block py-2 text-white/90 hover:text-[#00ffdf]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
                 </Link>
               </li>
               <li className="pt-2">

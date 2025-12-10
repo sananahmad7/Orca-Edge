@@ -12,7 +12,6 @@ export default function Home() {
       <CoreServices />
       <WhyChooseUs />
       <OurProcess />
-      <div className="h-80" />
     </div>
   );
 }

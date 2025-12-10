@@ -5,6 +5,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import { Geist, Geist_Mono, Nunito } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
         />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

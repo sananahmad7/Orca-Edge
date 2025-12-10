@@ -21,7 +21,7 @@ const HERO_DESCRIPTION =
   "Being online isn’t enough—you need to be seen by the right people, at the right time, with the right message. Orca Edge offers strategic digital marketing services that help you attract, engage, and convert your ideal customers.";
 
 // TODO: replace this with your actual hero image path
-const HERO_IMAGE_SRC = "/images/services/digital-marketing-hero.png";
+const HERO_IMAGE_SRC = "/DM.png";
 
 const DIGITAL_MARKETING_CAPABILITIES = [
   {

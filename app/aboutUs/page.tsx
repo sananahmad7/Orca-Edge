@@ -12,7 +12,6 @@ function page() {
       <SetsUsApart />
       <OurValues />
       <HowWeWork />
-      <div className="h-80" />
     </div>
   );
 }

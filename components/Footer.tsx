@@ -6,7 +6,7 @@ const Footer: FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="font-nunito bg-[#003144] text-slate-100 border-t border-[#009f8b]/40">
+    <footer className="font-nunito bg-[#01222f] text-slate-100 border-t border-[#009f8b]/40">
       <div className="container mx-auto px-4 md:px-8 py-10 md:py-12">
         {/* Top row */}
         <div className="grid gap-10 md:gap-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)] items-start">

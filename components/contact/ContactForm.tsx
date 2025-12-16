@@ -9,7 +9,7 @@ type ContactFormState = {
   message: string;
 };
 
-export default function ContactPage() {
+export default function ContactForm() {
   // 1. State for Form Data
   const [formData, setFormData] = useState<ContactFormState>({
     fullName: "",
@@ -45,7 +45,9 @@ export default function ContactPage() {
       });
 
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
+        const data = (await res.json().catch(() => ({}))) as {
+          error?: string;
+        };
         throw new Error(data.error || "Failed to send message.");
       }
 
@@ -53,10 +55,14 @@ export default function ContactPage() {
         "Message sent successfully. We'll be in touch shortly."
       );
       setFormData({ fullName: "", email: "", phone: "", message: "" });
-    } catch (err: any) {
-      setErrorMessage(
-        err?.message || "Something went wrong. Please try again."
-      );
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setErrorMessage(
+          error.message || "Something went wrong. Please try again."
+        );
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -193,7 +199,7 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/* Right: Design / Info panel (Unchanged UI) */}
+          {/* Right: Design / Info panel */}
           <div className="relative">
             {/* Background shape */}
             <div className="absolute inset-0 rounded-3xl bg-[#003144] bg-[radial-gradient(circle_at_top,_#00ffdf_0,_#003144_45%,#001622_100%)] opacity-95" />

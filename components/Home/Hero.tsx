@@ -76,39 +76,73 @@ const Hero = () => {
         </div>
 
         {/* Right Column: The "Anti-Template" Visual */}
-        {/* Kept abstract and technical. The dark plates ensure it pops against the aqua background. */}
-        <div className="relative hidden lg:block h-[400px] w-full perspective-1000">
-          <div className="absolute inset-0 flex items-center justify-center">
-            {/* The Composition */}
-            <div className="relative w-[320px] h-[400px] transform rotate-y-12 rotate-x-6 transition-transform duration-700 hover:rotate-y-6 hover:rotate-x-3">
-              {/* Layer 1: Base Dark Plate (High opacity to block background image) */}
-              <div className="absolute inset-0 bg-[#0a0a0a]/95 border border-slate-700 shadow-2xl backdrop-blur-xl"></div>
+        <div className="relative hidden lg:block h-[400px] w-full perspective-[1200px]">
+          <div className="absolute inset-0 flex items-center justify-center p-10">
+            {/* The Main Composition Container */}
+            <div className="relative w-full max-w-[450px] aspect-[4/3] transform rotate-y-[15deg] rotate-x-[10deg] transition-all duration-700 ease-out hover:rotate-y-[5deg] hover:rotate-x-[5deg] hover:scale-105">
+              {/* --- Layer 1: The Foundation Plate (Glass & Wireframe) --- */}
+              <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-3xl border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                {/* Subtle Grid Background pattern */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:20px_20px]"></div>
 
-              {/* Layer 2: The "Grid" (Structure) */}
-              <div className="absolute inset-4 border border-dashed border-slate-600/30 grid grid-cols-4 grid-rows-4 gap-4 p-4">
-                <div className="col-span-2 row-span-1 bg-[#00ffdf]/10 border border-[#00ffdf]/20"></div>
-                <div className="col-span-1 row-span-1 border border-slate-700"></div>
-                <div className="col-span-4 row-span-2 border-t border-b border-slate-700 relative overflow-hidden">
-                  {/* Abstract Data Lines */}
-                  <div className="absolute top-1/2 left-0 w-full h-px bg-slate-800"></div>
-                  <div className="absolute top-0 left-1/4 w-px h-full bg-slate-800"></div>
-                  <div className="absolute top-3 left-3 w-12 h-1 bg-slate-600"></div>
-                  <div className="absolute top-6 left-3 w-8 h-1 bg-slate-700"></div>
+                {/* Abstract Wireframe hints (Dev) */}
+                <div className="absolute top-0 left-0 right-0 h-12 border-b border-white/10 flex items-center px-4 space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                </div>
+                <div className="absolute top-20 left-10 w-1/3 h-2 bg-slate-700/50 rounded"></div>
+                <div className="absolute top-24 left-10 w-1/4 h-2 bg-slate-700/30 rounded"></div>
+
+                {/* Glowing Data Stream (Connecting elements) */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute -inset-x-10 top-1/2 h-[2px] bg-gradient-to-r from-transparent via-[#00ffdf] to-transparent blur-sm opacity-70 transform -rotate-12 translate-y-12"></div>
                 </div>
               </div>
 
-              {/* Layer 3: The "Edge" Accent */}
-              <div className="absolute -right-12 top-12 w-24 h-24 border-2 border-[#00ffdf] backdrop-blur-xl flex items-center justify-center z-20 shadow-[0_0_30px_rgba(0,255,223,0.1)] bg-black/60">
-                <div className="w-3 h-3 bg-[#00ffdf]"></div>
+              {/* --- Layer 2: The Growth Engine (Digital Marketing) --- */}
+              {/* Floating element on the left representing analytics/growth */}
+              <div className="absolute -left-10 bottom-10 w-40 h-48 bg-slate-800/80 backdrop-blur-xl border-l border-t border-white/20 rounded-lg p-4 shadow-[0_10px_40px_-10px_rgba(0,255,223,0.3)] z-20 transform translate-z-12">
+                <div className="text-xs text-slate-400 mb-2 font-mono">
+                  Growth Velocity
+                </div>
+                {/* Abstract Chart */}
+                <div className="relative h-24 w-full flex items-end space-x-1">
+                  <div className="w-1/5 h-1/3 bg-[#00ffdf]/20 rounded-t"></div>
+                  <div className="w-1/5 h-1/2 bg-[#00ffdf]/40 rounded-t"></div>
+                  <div className="w-1/5 h-2/3 bg-[#00ffdf]/60 rounded-t"></div>
+                  <div className="w-1/5 h-3/4 bg-[#00ffdf]/80 rounded-t relative">
+                    {/* Glowing peak indicator */}
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#00ffdf] rounded-full shadow-[0_0_10px_rgba(0,255,223,0.8)] animate-pulse"></div>
+                  </div>
+                </div>
+                <div className="mt-4 h-1 w-full bg-slate-700 rounded overflow-hidden">
+                  <div className="h-full w-3/4 bg-gradient-to-r from-[#00ffdf] to-cyan-600"></div>
+                </div>
               </div>
 
-              {/* Layer 4: Floating "Card" */}
-              <div className="absolute -left-8 bottom-12 w-48 h-32 bg-[#111] border-l-4 border-[#007667] p-6 shadow-2xl z-30 flex flex-col justify-between">
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-slate-600"></div>
-                  <div className="w-2 h-2 rounded-full bg-slate-600"></div>
+              {/* --- Layer 3: The Content Blocks (Copywriting) --- */}
+              {/* Floating elements on right representing message/content */}
+              <div className="absolute -right-8 top-16 w-32 p-3 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-md shadow-xl z-30 transform translate-z-24 flex flex-col gap-2">
+                <div className="h-2 w-2/3 bg-slate-600/50 rounded animate-pulse"></div>
+                <div className="h-2 w-full bg-slate-700/50 rounded"></div>
+                <div className="h-2 w-1/2 bg-slate-700/50 rounded"></div>
+              </div>
+              {/* Smaller secondary block */}
+              <div className="absolute -right-4 top-40 w-24 p-2 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-md shadow-lg z-20 transform translate-z-16 flex flex-col gap-2 opacity-80">
+                <div className="h-1.5 w-full bg-slate-600/50 rounded"></div>
+                <div className="h-1.5 w-3/4 bg-slate-700/50 rounded"></div>
+              </div>
+
+              {/* --- Layer 4: The Core Accent (The "Spark") --- */}
+              {/* Replacing the square with a glowing interface ring */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none">
+                <div className="relative w-32 h-32 rounded-full border-[1px] border-[#00ffdf]/30 flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-[#00ffdf] rounded-full shadow-[0_0_15px_rgba(0,255,223,1)]"></div>
                 </div>
-                <div className="w-full h-1 bg-gradient-to-r from-[#00ffdf] to-transparent"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border-[3px] border-[#00ffdf]/10 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-[#00ffdf] rounded-full shadow-[0_0_30px_rgba(0,255,223,0.6)] animate-ping opacity-75"></div>
+                </div>
               </div>
             </div>
           </div>

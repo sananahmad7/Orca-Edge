@@ -17,7 +17,7 @@ export default function Navbar() {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#003144] text-white">
+    <header className="w-full bg-[#01222f] text-white">
       <div className="mx-auto flex h-11 max-w-6xl items-center justify-between px-4">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-2">

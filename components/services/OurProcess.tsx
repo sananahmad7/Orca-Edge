@@ -45,7 +45,11 @@ const ServiceProcess: FC<ServiceProcessProps> = ({ title, steps }) => {
                 >
                   {/* CENTER NODE: The Pivot Point */}
                   <div className="absolute left-8 top-0 md:left-1/2 md:top-8 md:-translate-x-1/2 z-10">
-                    <div className="flex h-4 w-4 -translate-x-[7px] items-center justify-center rounded-full bg-white ring-4 ring-[#009f8b] md:h-6 md:w-6 md:-translate-x-[11px] md:ring-[6px] shadow-lg"></div>
+                    {/* FIX APPLIED HERE: 
+                        1. Mobile: -translate-x-[7px] is kept to center the 16px circle on the left-8 line.
+                        2. Desktop: We use md:translate-x-0 to reset the shift, allowing the parent (which is already centered) to handle alignment.
+                    */}
+                    <div className="flex h-4 w-4 -translate-x-[7px] items-center justify-center rounded-full bg-white ring-4 ring-[#009f8b] md:h-6 md:w-6 md:translate-x-0 md:ring-[6px] shadow-lg"></div>
                   </div>
 
                   {/* MAIN CARD SIDE */}

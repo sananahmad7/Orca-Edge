@@ -1,137 +1,264 @@
-// components/Home/CoreServices.tsx
-import Link from "next/link";
-import type { FC, ReactNode } from "react";
-import LordIcon from "../LordIcon";
-import { themeClasses } from "@/lib/themeClasses";
-type Service = {
-  id: string;
-  title: string;
-  description: string;
-  href: string;
-  cta: string;
-  icon: ReactNode;
-};
+"use client";
 
-const services: Service[] = [
-  {
-    id: "web-development",
-    title: "Web Development",
-    description:
-      "Your website is your digital headquarters. We design and develop fast, responsive, and conversion-focused websites that not only look beautiful but also perform under pressure. Whether you need a corporate site, landing page, or fully custom platform, we create experiences that keep users engaged and moving toward action.",
-    href: "/services/web-development",
-    cta: "Learn more about Web Development",
-    icon: (
-      <LordIcon
-        src="https://cdn.lordicon.com/ovxlloho.json"
-        trigger="loop"
-        colors="primary:#003144,secondary:#009f8b"
-        style={{ width: "75px", height: "65px" }}
-      />
-    ),
-  },
-  {
-    id: "mobile-app-development",
-    title: "Mobile App Development",
-    description:
-      "Stay in your customers&apos; hands—literally. We design and build user-friendly mobile applications for iOS and Android that align with your business goals and delight your users. From MVPs to feature-rich products, we help you deliver seamless experiences on the go.",
-    href: "/services/mobile-app-development",
-    cta: "Learn more about Mobile App Development",
-    icon: (
-      <LordIcon
-        src="https://cdn.lordicon.com/lxbjmpxy.json"
-        trigger="loop"
-        colors="primary:#003144,secondary:#009f8b"
-        style={{ width: "75px", height: "65px" }}
-      />
-    ),
-  },
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    description:
-      "Visibility without strategy is noise. Our digital marketing services are built around your objectives—whether it&apos;s brand awareness, lead generation, or sales. We blend SEO, social media, paid ads, and email marketing into a cohesive, data-driven strategy that grows your audience and revenue.",
-    href: "/services/digital-marketing",
-    cta: "Learn more about Digital Marketing",
-    icon: (
-      <LordIcon
-        src="https://cdn.lordicon.com/xovdoewm.json"
-        trigger="loop"
-        colors="primary:#003144,secondary:#009f8b"
-        style={{ width: "75px", height: "65px" }}
-      />
-    ),
-  },
-  {
-    id: "copywriting",
-    title: "Copywriting",
-    description:
-      "Words are how your brand speaks when you&apos;re not in the room. We craft clear, persuasive, and on-brand copy that resonates with your ideal customers—across your website, ads, emails, and more. Great copy doesn&apos;t just sound good; it drives action.",
-    href: "/services/copywriting",
-    cta: "Learn more about Copywriting",
-    icon: (
-      <LordIcon
-        src="https://cdn.lordicon.com/eyjfodee.json"
-        trigger="loop"
-        colors="primary:#003144,secondary:#009f8b"
-        style={{ width: "75px", height: "65px" }}
-      />
-    ),
-  },
+// components/layout/Navbar.tsx
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+const services = [
+  { label: "Web Development", href: "/services/web-development" },
+  { label: "Mobile App Development", href: "/services/mobile-app-development" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
+  { label: "Copywriting", href: "/services/copywriting" },
 ];
 
-const CoreServices: FC = () => {
+export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Optional: Adds a subtle shadow/background effect on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+  }, [pathname]);
+
+  const themeColor = "#009f8b";
+  // A slightly darker hover state for the theme color
+  const themeHoverColor = "#007f6f";
+
   return (
-    <section
-      className={`font-nunito ${themeClasses.sectionBg} py-16
-                 bg-[linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)]
-                 bg-[length:40px_40px]`}
+    <header
+      className={`fixed top-0 z-50 w-full border-b border-white/5 text-white transition-all duration-300 ${
+        scrolled ? "bg-[#021a24]/95 backdrop-blur-md shadow-lg" : "bg-[#021a24]"
+      }`}
     >
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="mb-10 text-center text-gray-900">
-          <h2 className="text-3xl font-extrabold md:text-4xl">
-            Our Core Services
-          </h2>
-          <p className="mt-3 mx-auto max-w-2xl text-sm md:text-base text-gray-800">
-            From web and mobile to marketing and copy, we provide end-to-end
-            digital solutions that move your business forward.
-          </p>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Left: Logo */}
+        <Link href="/" className="flex shrink-0 items-center">
+          {/* Ensure your new logo image is in the public folder */}
+          <Image
+            src="/OE-08.png" // <--- REPLACE WITH YOUR ACTUAL NEW LOGO PATH
+            alt="Orca Edge"
+            // Increased width/height slightly to accommodate the stacked text in the new logo
+            width={75}
+            height={15}
+            className=" object-contain"
+            priority
+          />
+        </Link>
+
+        {/* Center: Nav links (Desktop) */}
+        <nav className="hidden md:flex md:flex-1 md:items-center md:justify-center">
+          <ul className="flex items-center gap-8 text-[15px] font-medium font-nunito">
+            <li>
+              <Link href="/" className="transition-colors hover:text-[#009f8b]">
+                Home
+              </Link>
+            </li>
+
+            {/* Services with hover dropdown */}
+            <li className="relative group h-20 flex items-center">
+              <button
+                className="flex items-center gap-1 cursor-pointer font-nunito transition-colors hover:text-[#009f8b] focus:outline-none"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Services
+                {/* Small chevron icon for UX */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4 pt-1 transition-transform group-hover:rotate-180"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              {/* Dropdown panel */}
+              {/* Added an invisible bridge so the mouse doesn't lose focus between button and menu */}
+              <div className="absolute top-[calc(100%-10px)] left-1/2 h-4 w-full -translate-x-1/2"></div>
+
+              <div className="pointer-events-none absolute left-1/2 top-[calc(100%-5px)] w-64 -translate-x-1/2 rounded-lg border border-white/10 bg-[#03222f] py-3 shadow-xl opacity-0 transition-all duration-200 ease-in-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 translate-y-2">
+                {services.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-6 py-2.5 text-sm font-nunito text-white/90 transition-colors hover:bg-white/5 hover:text-[#009f8b]"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            <li>
+              <Link
+                href="/aboutUs"
+                className="transition-colors hover:text-[#009f8b]"
+              >
+                About
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/contact"
+                className="transition-colors hover:text-[#009f8b]"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Right: CTA (Desktop) */}
+        <div className="hidden items-center gap-4 md:flex">
+          <Link
+            href="/contact"
+            // Updated button style: cleaner font, theme background, less rounded corners
+            className={`rounded-lg bg-[#009f8b] px-6 py-2.5 font-nunito text-sm font-bold tracking-wider text-white shadow-sm transition-all hover:bg-[#007f6f] hover:shadow-md active:scale-95`}
+          >
+            Book a Free Consultation
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <article
-              key={service.id}
-              className="flex flex-col  bg-white p-6 rounded-md shadow-2xl shadow-black/10 transition-transform transition-shadow duration-150 hover:-translate-y-1 hover:shadow-lg"
+        {/* Mobile: Hamburger */}
+        <button
+          className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:bg-white/10 hover:text-white md:hidden focus:outline-none"
+          aria-label="Toggle navigation"
+          onClick={() => {
+            setIsMobileMenuOpen((prev) => !prev);
+            // Don't auto-close services menu on main toggle, feels jarring
+          }}
+        >
+          <span className="sr-only">Open main menu</span>
+          <div className="relative h-5 w-6 overflow-hidden">
+            <span
+              className={`absolute left-0 block h-[2px] w-full transform bg-current transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                  ? "top-1/2 -translate-y-1/2 rotate-45"
+                  : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-1/2 block h-[2px] w-full -translate-y-1/2 transform bg-current transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 block h-[2px] w-full transform bg-current transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                  ? "top-1/2 -translate-y-1/2 -rotate-45"
+                  : "bottom-0"
+              }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile menu panel */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-white/10 bg-[#03222f] px-4 pb-6 pt-4 sm:px-6">
+          <nav className="grid gap-y-1 font-nunito text-base">
+            <Link
+              href="/"
+              className="flex items-center rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b]"
             >
-              <div className="mb-4 inline-flex   items-center justify-center rounded-full bg-white/15">
-                {service.icon}
-              </div>
+              Home
+            </Link>
 
-              <h3 className="mb-3 text-lg font-bold text-slate-900">
-                {service.title}
-              </h3>
-              <p className="mb-6 text-sm leading-relaxed text-slate-600">
-                {service.description}
-              </p>
-
-              <div className="mt-auto">
-                <Link
-                  href={service.href}
-                  aria-label={service.cta}
-                  className="inline-flex items-center justify-center rounded-full bg-[#009f8b] px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-[#00bda5] focus:outline-none focus:ring-2 focus:ring-[#00ffdF] focus:ring-offset-2"
+            {/* Mobile Services Dropdown */}
+            <div>
+              <button
+                className={`flex w-full items-center justify-between rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b] ${
+                  isMobileServicesOpen ? "text-[#009f8b] bg-white/5" : ""
+                }`}
+                onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                aria-expanded={isMobileServicesOpen}
+              >
+                <span>Services</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className={`h-5 w-5 transition-transform duration-200 ${
+                    isMobileServicesOpen ? "rotate-180" : ""
+                  }`}
                 >
-                  {service.cta}
-                  <span className="ml-2 text-lg" aria-hidden="true">
-                    →
-                  </span>
-                </Link>
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  isMobileServicesOpen ? "max-h-96 mt-1" : "max-h-0"
+                }`}
+              >
+                <ul className="space-y-1 rounded-lg bg-black/20 p-2">
+                  {services.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="block rounded-md py-2.5 px-4 text-sm text-white/80 hover:bg-white/5 hover:text-[#009f8b]"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </article>
-          ))}
+            </div>
+
+            <Link
+              href="/aboutUs"
+              className="flex items-center rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b]"
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="flex items-center rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b]"
+            >
+              Contact
+            </Link>
+
+            {/* Mobile CTA */}
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <Link
+                href="/contact"
+                className="flex w-full items-center justify-center rounded-lg bg-[#009f8b] px-4 py-3 font-bold tracking-wider text-white transition-colors hover:bg-[#007f6f]"
+              >
+                Book a Free Consultation
+              </Link>
+            </div>
+          </nav>
         </div>
       </div>
-    </section>
+    </header>
   );
-};
-
-export default CoreServices;
+}

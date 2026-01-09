@@ -1,6 +1,7 @@
 // components/Footer.tsx
 import type { FC } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer: FC = () => {
   const year = new Date().getFullYear();
@@ -12,10 +13,16 @@ const Footer: FC = () => {
         <div className="grid gap-10 md:gap-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)] items-start">
           {/* Brand / Intro */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2">
-              <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
-                Orca Edge
-              </span>
+            <Link href="/" className="inline-flex">
+              {/* Logo Size increased and text removed */}
+              <Image
+                src="/OE-08.png"
+                alt="Orca Edge"
+                width={120}
+                height={120}
+                // Changed h-10 to h-20 for larger size
+                className="h-20 w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 max-w-md text-sm md:text-[15px] text-slate-200/80 leading-relaxed">
               Digital experiences designed to perform. We build, market, and

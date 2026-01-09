@@ -38,27 +38,28 @@ export default function Navbar() {
     <header
       className={`fixed top-0 z-50 w-full border-b transition-all duration-300 ${
         scrolled
-          ? "border-gray-200 bg-white/90 backdrop-blur-md shadow-sm"
-          : "border-transparent bg-white"
+          ? "border-[#009f8b]/30 bg-[#01222f]/95 backdrop-blur-md shadow-lg" // Scrolled state
+          : "border-transparent bg-[#01222f]" // Default state (Always Blue)
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Logo */}
         <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src="/OE-08.png" // Ensure this path is correct
-            alt=" EdgeOrca"
+            src="/OE-08.png"
+            alt="Orca Edge"
             width={75}
             height={75}
-            className=" object-contain"
+            // Retained the max-h-14 fix so the logo doesn't hang out
+            className="max-h-14 w-auto object-contain"
             priority
           />
         </Link>
 
         {/* Center: Nav links (Desktop) */}
-        {/* Text color changed to your Brand Dark Blue (#01222f) for contrast */}
         <nav className="hidden md:flex md:flex-1 md:items-center md:justify-center">
-          <ul className="flex items-center gap-8 text-[15px] font-bold font-nunito text-[#01222f]">
+          {/* Force Text White */}
+          <ul className="flex items-center gap-8 text-[15px] font-bold font-nunito text-white">
             <li>
               <Link href="/" className="transition-colors hover:text-[#009f8b]">
                 Home
@@ -91,13 +92,13 @@ export default function Navbar() {
               {/* Invisible bridge for hover stability */}
               <div className="absolute top-[calc(100%-10px)] left-1/2 h-4 w-full -translate-x-1/2"></div>
 
-              {/* Dropdown Panel - White BG with Shadow */}
-              <div className="pointer-events-none absolute left-1/2 top-[calc(100%-5px)] w-64 -translate-x-1/2 rounded-xl border border-gray-100 bg-white py-2 shadow-xl opacity-0 transition-all duration-200 ease-in-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 translate-y-2">
+              {/* Dropdown Panel - Dark Blue BG to match theme */}
+              <div className="pointer-events-none absolute left-1/2 top-[calc(100%-5px)] w-64 -translate-x-1/2 rounded-xl border border-[#009f8b]/30 bg-[#022c3d] py-2 shadow-xl opacity-0 transition-all duration-200 ease-in-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 translate-y-2">
                 {services.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block px-6 py-3 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-[#009f8b]"
+                    className="block px-6 py-3 text-sm font-medium text-slate-100 transition-colors hover:bg-[#009f8b]/10 hover:text-[#009f8b]"
                   >
                     {item.label}
                   </Link>
@@ -135,9 +136,9 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile: Hamburger - Dark color for visibility on white */}
+        {/* Mobile: Hamburger - Always White */}
         <button
-          className="inline-flex items-center justify-center rounded-md p-2 text-[#01222f] hover:bg-gray-100 md:hidden focus:outline-none"
+          className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10 md:hidden focus:outline-none"
           aria-label="Toggle navigation"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
         >
@@ -171,11 +172,12 @@ export default function Navbar() {
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="border-t border-gray-100 bg-white px-4 pb-8 pt-4 shadow-inner">
-          <nav className="grid gap-y-1 font-nunito text-base font-medium text-[#01222f]">
+        {/* Dark Blue Background for Mobile Menu */}
+        <div className="border-t border-[#009f8b]/30 bg-[#01222f] px-4 pb-8 pt-4 shadow-inner">
+          <nav className="grid gap-y-1 font-nunito text-base font-medium text-white">
             <Link
               href="/"
-              className="flex items-center rounded-lg p-3 hover:bg-gray-50 hover:text-[#009f8b]"
+              className="flex items-center rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b]"
             >
               Home
             </Link>
@@ -183,8 +185,8 @@ export default function Navbar() {
             {/* Mobile Services Dropdown */}
             <div>
               <button
-                className={`flex w-full items-center justify-between rounded-lg p-3 hover:bg-gray-50 hover:text-[#009f8b] ${
-                  isMobileServicesOpen ? "text-[#009f8b] bg-gray-50" : ""
+                className={`flex w-full items-center justify-between rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b] ${
+                  isMobileServicesOpen ? "text-[#009f8b] bg-white/5" : ""
                 }`}
                 onClick={() => setIsMobileServicesOpen((prev) => !prev)}
               >
@@ -210,12 +212,12 @@ export default function Navbar() {
                   isMobileServicesOpen ? "max-h-96 mt-1" : "max-h-0"
                 }`}
               >
-                <ul className="space-y-1 rounded-lg bg-gray-50/50 p-2 border border-gray-100">
+                <ul className="space-y-1 rounded-lg bg-black/20 p-2 border border-[#009f8b]/20">
                   {services.map((item) => (
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className="block rounded-md py-2.5 px-4 text-sm text-gray-600 hover:bg-white hover:text-[#009f8b] hover:shadow-sm"
+                        className="block rounded-md py-2.5 px-4 text-sm text-slate-200 hover:bg-white/10 hover:text-[#009f8b]"
                       >
                         {item.label}
                       </Link>
@@ -227,19 +229,19 @@ export default function Navbar() {
 
             <Link
               href="/aboutUs"
-              className="flex items-center rounded-lg p-3 hover:bg-gray-50 hover:text-[#009f8b]"
+              className="flex items-center rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b]"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="flex items-center rounded-lg p-3 hover:bg-gray-50 hover:text-[#009f8b]"
+              className="flex items-center rounded-lg p-3 hover:bg-white/5 hover:text-[#009f8b]"
             >
               Contact
             </Link>
 
             {/* Mobile CTA */}
-            <div className="mt-6 pt-4 border-t border-gray-100">
+            <div className="mt-6 pt-4 border-t border-[#009f8b]/30">
               <Link
                 href="/contact"
                 className="flex w-full items-center justify-center rounded-lg bg-[#009f8b] px-4 py-3 font-bold tracking-wider text-white transition-colors hover:bg-[#008f7b]"

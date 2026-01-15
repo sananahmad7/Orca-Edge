@@ -20,7 +20,7 @@ const ServiceHero: FC<ServiceHeroProps> = ({
          3. Added 'flex items-center': This forces the container to sit exactly in the vertical middle.
          4. Kept 'py-12': Acts as a safety buffer so content never hits the exact edge on small screens.
       */}
-      <div className="min-h-[60vh] flex items-center py-12 md:py-15">
+      <div className="min-h-[60vh] flex items-center mt-15 xl:mt-0 py-12 md:py-15">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4">
             {/* Text side */}

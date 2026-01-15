@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 type ProcessStep = {
@@ -163,10 +164,13 @@ export default function OurProcess() {
           <p className="text-slate-300 mb-6 text-lg">
             Ready to start your journey with us?
           </p>
-          <button className="inline-flex items-center cursor-pointer justify-center px-8 py-3 bg-white text-[#1677B3] font-semibold rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] hover:-translate-y-1 transition-all duration-300 hover:bg-slate-50">
+          <Link
+            href={"/contact"}
+            className="inline-flex items-center cursor-pointer justify-center px-8 py-3 bg-white text-[#1677B3] font-semibold rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] hover:-translate-y-1 transition-all duration-300 hover:bg-slate-50"
+          >
             Let's Work Together
             <span className="ml-2">→</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -6,14 +5,16 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { fullName, email, phone, message } = body as {
+    // 1. Destructure captchaToken along with other fields
+    const { fullName, email, phone, message, captchaToken } = body as {
       fullName?: string;
       email?: string;
       phone?: string;
       message?: string;
+      captchaToken?: string;
     };
 
-    // Basic validation
+    // 2. Validate form fields
     if (!fullName || !email || !message) {
       return NextResponse.json(
         { error: "Full name, email, and message are required." },
@@ -21,11 +22,32 @@ export async function POST(req: Request) {
       );
     }
 
-    // Create transporter
+    // 3. Validate Captcha Token Presence
+    if (!captchaToken) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification missing." },
+        { status: 400 }
+      );
+    }
+
+    // 4. Verify Captcha with Google
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`;
+
+    const captchaRes = await fetch(verifyUrl, { method: "POST" });
+    const captchaValidation = await captchaRes.json();
+
+    if (!captchaValidation.success) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Are you a robot?" },
+        { status: 400 }
+      );
+    }
+
+    // 5. Create transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT ?? 587),
-      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for others
+      secure: Number(process.env.SMTP_PORT) === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -37,7 +59,7 @@ export async function POST(req: Request) {
     const fromEmail =
       process.env.CONTACT_FROM_EMAIL || process.env.SMTP_USER || email;
 
-    // Compose email
+    // 6. Compose email
     const mailOptions = {
       from: fromEmail,
       to: toEmail,

@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type ContactFormState = {
   fullName: string;
@@ -18,10 +19,14 @@ export default function ContactForm() {
     message: "",
   });
 
-  // 2. State for UI Feedback (Loading, Success, Error)
+  // 2. State for UI Feedback & Captcha
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  // Ref to reset captcha after submission
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,18 +35,32 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const onCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+    // Clear error if they just checked the box
+    if (token) setErrorMessage(null);
+  };
+
   // 3. The Functional Submit Handler
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSuccessMessage(null);
     setErrorMessage(null);
+
+    // Client-side check: Ensure Captcha is checked
+    if (!captchaToken) {
+      setErrorMessage("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        // Send form data + captcha token
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
 
       if (!res.ok) {
@@ -54,7 +73,10 @@ export default function ContactForm() {
       setSuccessMessage(
         "Message sent successfully. We'll be in touch shortly."
       );
+      // Reset form and captcha
       setFormData({ fullName: "", email: "", phone: "", message: "" });
+      setCaptchaToken(null);
+      recaptchaRef.current?.reset();
     } catch (error: unknown) {
       if (error instanceof Error) {
         setErrorMessage(
@@ -73,7 +95,6 @@ export default function ContactForm() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Heading */}
         <div className="mb-10 md:mb-14 text-center">
-          {/* CHANGED: Accent color to Ocean Blue */}
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1677B3] mb-3">
             Contact
           </p>
@@ -107,7 +128,6 @@ export default function ContactForm() {
                   required
                   value={formData.fullName}
                   onChange={handleChange}
-                  // CHANGED: Focus border to Ocean Blue, Ring to Sky Blue
                   className="block w-full rounded-md border border-slate-200 bg-white px-3 py-2.5 text-sm md:text-base text-slate-900 shadow-sm outline-none transition-colors focus:border-[#1677B3] focus:ring-2 focus:ring-[#38bdf8]"
                   placeholder="Jane Doe"
                 />
@@ -174,10 +194,18 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Feedback Messages (Success/Error) */}
+              {/* ReCAPTCHA v2 Checkbox */}
+              <div className="flex justify-center md:justify-start">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                  onChange={onCaptchaChange}
+                />
+              </div>
+
+              {/* Feedback Messages */}
               <div className="min-h-[24px]">
                 {successMessage && (
-                  // CHANGED: Success color to Ocean Blue
                   <p className="text-sm font-semibold text-[#1677B3] animate-pulse">
                     {successMessage}
                   </p>
@@ -194,7 +222,6 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  // CHANGED: Button BG to Ocean Blue, Hover to Darker Blue
                   className="inline-flex items-center cursor-pointer justify-center rounded-full bg-[#1677B3] px-7 py-3 text-sm md:text-base font-semibold tracking-[0.18em] uppercase text-white shadow-md shadow-[#1677B3]/30 transition-all hover:bg-[#126294] hover:shadow-[#1677B3]/40 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Send message"}
@@ -206,13 +233,11 @@ export default function ContactForm() {
           {/* Right: Design / Info panel */}
           <div className="relative">
             {/* Background shape */}
-            {/* CHANGED: Gradient to Ocean Blue base with Sky Blue radial */}
             <div className="absolute inset-0 rounded-3xl bg-[#1677B3] bg-[radial-gradient(circle_at_top,_#38bdf8_0,_#1677B3_45%,#0f4c75_100%)] opacity-95" />
 
             {/* Content */}
             <div className="relative z-10 h-full w-full rounded-3xl px-7 py-8 md:px-10 md:py-12 text-white flex flex-col justify-between">
               <div>
-                {/* CHANGED: Accent text to Sky Blue */}
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#38bdf8] mb-3">
                   Orca Edge
                 </p>
@@ -227,21 +252,18 @@ export default function ContactForm() {
 
                 <div className="space-y-3 text-sm md:text-base">
                   <div className="flex items-start gap-3">
-                    {/* CHANGED: Diamond to Sky Blue */}
                     <span className="mt-1 h-2 w-2 rotate-45 bg-[#38bdf8]" />
                     <p className="text-blue-50">
                       Response within one business day.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    {/* CHANGED: Diamond to Light Blue */}
                     <span className="mt-1 h-2 w-2 rotate-45 bg-[#7dd3fc]" />
                     <p className="text-blue-50">
                       No pushy sales calls—just practical guidance.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    {/* CHANGED: Diamond to White/Blue Tint */}
                     <span className="mt-1 h-2 w-2 rotate-45 bg-[#bae6fd]" />
                     <p className="text-blue-50">
                       Projects of all sizes, from landing pages to full

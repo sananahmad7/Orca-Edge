@@ -45,7 +45,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base xl:text-lg text-slate-300 leading-relaxed max-w-xl drop-shadow-md font-light">
+          <p className="text-base xl:text-lg 2xl:text-xl text-slate-300 leading-relaxed max-w-xl drop-shadow-md font-light">
             Orca Edge is a full-service digital agency delivering
             high-performing websites, mobile apps, digital marketing, and
             copywriting that help brands grow with clarity, confidence, and

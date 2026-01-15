@@ -65,7 +65,7 @@ export default function OurProcess() {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-nunito">
+          <h2 className="text-3xl 2xl:text-4xl font-bold text-white mb-4 font-nunito">
             Our Process
           </h2>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -115,7 +115,7 @@ export default function OurProcess() {
 
                   {/* Content */}
                   <h3
-                    className={`text-xl md:text-2xl font-bold mb-3 transition-colors duration-300
+                    className={`text-lg md:text-xl font-bold mb-3 transition-colors duration-300
                       ${
                         activeStep === step.number
                           ? "text-[#1677B3]"

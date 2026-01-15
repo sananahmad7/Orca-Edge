@@ -22,7 +22,7 @@ const WhatWeBuild: FC<ServiceCapabilitiesProps> = ({ heading, items }) => {
       <div className="container relative mx-auto md:px-8">
         {/* Section heading - Centered and Bold */}
         <div className="mb-16 md:mb-20 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
             {heading}
           </h2>
           <div className="mt-4 mx-auto h-1.5 w-24 rounded-full bg-white/30" />
@@ -47,7 +47,7 @@ const WhatWeBuild: FC<ServiceCapabilitiesProps> = ({ heading, items }) => {
                 <h3 className="mb-4 text-xl font-bold text-white transition-colors duration-300 group-hover:text-[#1677B3]">
                   {item.title}
                 </h3>
-                <p className="text-sm font-medium leading-relaxed text-white/80 transition-colors duration-300 group-hover:text-slate-600">
+                <p className="text-sm lg:text-base font-medium leading-relaxed text-white/80 transition-colors duration-300 group-hover:text-slate-600">
                   {item.description}
                 </p>
               </div>

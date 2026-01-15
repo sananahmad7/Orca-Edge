@@ -52,11 +52,11 @@ const HowWeWork: FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div className="max-w-2xl">
             {/* CHANGED: Text color to White */}
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+            <h2 className="text-3xl 2xl:text-4xl font-extrabold text-white">
               How We Work
             </h2>
             {/* CHANGED: Text color to Blue-100 */}
-            <p className="mt-4 text-blue-100 text-lg">
+            <p className="mt-4 text-blue-100 text-sm 2xl:text-base">
               Systematic execution from concept to code.
             </p>
           </div>
@@ -84,13 +84,13 @@ const HowWeWork: FC = () => {
 
               {/* Text Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-slate-900 mb-1">
+                <h3 className="text-base 2xl:text-xl font-bold text-slate-900 mb-1">
                   {step.title}
                 </h3>
                 <p className="text-xs font-bold text-[#1677B3] uppercase tracking-wider mb-4">
                   {step.subtitle}
                 </p>
-                <p className="text-slate-600 text-sm leading-relaxed group-hover:text-slate-800 transition-colors">
+                <p className="text-slate-600 text-sm  leading-relaxed group-hover:text-slate-800 transition-colors">
                   {step.description}
                 </p>
               </div>

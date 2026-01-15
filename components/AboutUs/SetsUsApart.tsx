@@ -93,7 +93,7 @@ const WhatSetsUsApart = () => {
           {/* Right Side - Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="font-nunito text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="font-nunito text-3xl 2xl:text-4xl font-bold text-gray-900 mb-4">
                 What Sets Orca Edge Apart
               </h2>
             </div>
@@ -112,7 +112,7 @@ const WhatSetsUsApart = () => {
                   {/* Text Content */}
                   <div className="flex-1">
                     {/* CHANGED: Hover text color to Ocean Blue */}
-                    <h3 className="font-nunito text-xl font-bold text-gray-900 mb-2 group-hover:text-[#1677B3] transition-colors">
+                    <h3 className="font-nunito  text-xl font-bold text-gray-900 mb-2 group-hover:text-[#1677B3] transition-colors">
                       {advantage.title}
                     </h3>
                     <p className="font-nunito text-sm lg:text-base text-gray-600 leading-relaxed">

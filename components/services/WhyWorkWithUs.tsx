@@ -55,7 +55,7 @@ const WhyWorkWithUs: FC<ServiceBenefitsProps> = ({ title, benefits }) => {
                   <div className="h-2.5 w-2.5 bg-slate-200 rotate-45 group-hover:bg-[#1677B3] group-hover:rotate-90 transition-all duration-300" />
                 </div>
 
-                <p className="text-lg font-bold text-slate-800 leading-snug group-hover:text-[#1677B3] transition-colors">
+                <p className="text-lg lg:text-xl font-bold text-slate-800 leading-snug group-hover:text-[#1677B3] transition-colors">
                   {benefit}
                 </p>
               </div>

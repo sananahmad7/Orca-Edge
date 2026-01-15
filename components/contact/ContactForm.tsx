@@ -69,7 +69,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="font-nunito bg-slate-50 py-16 md:py-24">
+    <section className="font-nunito bg-slate-50 py-26 md:py-34">
       <div className="container mx-auto px-4 md:px-8">
         {/* Heading */}
         <div className="mb-10 md:mb-14 text-center">
@@ -77,10 +77,10 @@ export default function ContactForm() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1677B3] mb-3">
             Contact
           </p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl 2xl:text-4xl l font-extrabold text-slate-900 tracking-tight">
             Tell us about your project
           </h1>
-          <p className="mt-3 max-w-2xl mx-auto text-sm md:text-base text-slate-600">
+          <p className="mt-3 max-w-2xl mx-auto text-sm lg:text-base text-slate-600">
             Share a few details and we&apos;ll follow up with ideas, timelines,
             and next steps tailored to your goals.
           </p>
@@ -95,7 +95,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block text-sm font-semibold text-slate-800 mb-2"
+                  className="block text-sm lg:text-base font-semibold text-slate-800 mb-2"
                 >
                   Full name
                 </label>
@@ -117,7 +117,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-slate-800 mb-2"
+                  className="block text-sm lg:text-base font-semibold text-slate-800 mb-2"
                 >
                   Business email
                 </label>
@@ -138,7 +138,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-semibold text-slate-800 mb-2"
+                  className="block text-sm lg:text-base font-semibold text-slate-800 mb-2"
                 >
                   Contact number
                 </label>
@@ -158,7 +158,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-slate-800 mb-2"
+                  className="block text-sm lg:text-base font-semibold text-slate-800 mb-2"
                 >
                   How can we help?
                 </label>
@@ -216,10 +216,10 @@ export default function ContactForm() {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#38bdf8] mb-3">
                   Orca Edge
                 </p>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-4">
+                <h2 className="text-3xl xl:text-4xl  font-extrabold leading-tight mb-4">
                   Let&apos;s make your next digital move count.
                 </h2>
-                <p className="text-sm md:text-base text-blue-50 max-w-md mb-8">
+                <p className="text-sm lg:text-base text-blue-50 max-w-md mb-8">
                   Whether you&apos;re planning a new build, overhaul, or ongoing
                   support, we&apos;ll help you choose the right approach before
                   you commit to anything.

@@ -67,7 +67,7 @@ const OurValues: FC = () => {
                 <h3 className="text-xl font-semibold text-white">
                   {value.title}
                 </h3>
-                <p className="text-sm text-blue-50 mt-2 leading-relaxed">
+                <p className="text-sm 2xl:text-base text-blue-50 mt-2 leading-relaxed">
                   {value.description}
                 </p>
               </div>

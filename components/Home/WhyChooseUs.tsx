@@ -74,7 +74,7 @@ const WhyChooseUs: FC = () => {
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="mb-10 text-center">
-          <h2 className="text-3xl font-extrabold text-slate-900 md:text-4xl">
+          <h2 className="text-3xl 2xl:text-4xl font-extrabold text-slate-900">
             Why Choose <span className="text-[#1677B3]">Orca Edge?</span>
           </h2>
           <p className="mt-3 mx-auto max-w-2xl text-sm md:text-base text-slate-500">
@@ -95,12 +95,12 @@ const WhyChooseUs: FC = () => {
 
               {/* Title */}
               {/* CHANGED: Text color to match new dark blue tone */}
-              <h3 className="mb-2 text-base font-semibold text-slate-800 group-hover:text-[#1677B3] transition-colors">
+              <h3 className="mb-2 text-base 2xl:text-xl  font-semibold text-slate-800 group-hover:text-[#1677B3] transition-colors">
                 {reason.title}
               </h3>
 
               {/* Description */}
-              <p className="mx-auto max-w-sm text-xs md:text-sm leading-relaxed text-slate-600">
+              <p className="mx-auto max-w-sm text-sm 2xl:text-base leading-relaxed text-slate-600">
                 {reason.description}
               </p>
             </div>

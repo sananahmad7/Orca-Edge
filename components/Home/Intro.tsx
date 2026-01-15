@@ -9,7 +9,7 @@ function Intro() {
           {/* Left Card: Content (Transparent BG, Light Theme) */}
           <div className="flex flex-col justify-center h-full">
             {/* Added a subtle header to match the visual weight of the reference image */}
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
+            <h2 className="text-3xl 2xl:text-4xl font-bold text-slate-900 mb-6 tracking-tight">
               Essential {/* CHANGED: Teal -> Ocean Blue (#1677B3) */}
               <span className="text-[#1677B3] relative">
                 Impact
@@ -52,11 +52,11 @@ function Intro() {
 
               <div className="relative z-10">
                 {/* CHANGED: Border color to sky blue for accent */}
-                <h3 className="font-bold text-xl mb-6 border-l-4 border-[#38bdf8] pl-4 inline-block tracking-tight text-white">
+                <h3 className="font-bold text-3xl 2xl:text-4xl mb-6 border-l-4 border-[#38bdf8] pl-4 inline-block tracking-tight text-white">
                   Our Capabilities
                 </h3>
                 {/* CHANGED: Text color to white/slate-100 */}
-                <p className="text-xl 2xl:text-2xl font-normal text-slate-100 leading-snug tracking-tight">
+                <p className="text-xl 2xl:text-xl font-normal text-slate-100 leading-snug tracking-tight">
                   From pixel-perfect websites and intuitive mobile apps to
                   performance-driven marketing campaigns and persuasive
                   copywriting, we provide everything you need to build, grow,

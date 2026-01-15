@@ -29,7 +29,7 @@ const ServiceHero: FC<ServiceHeroProps> = ({
                 {heading}
               </h1>
 
-              <p className="mt-6 text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl">
+              <p className="mt-6 text-base md:text-lg lg:text-xl leading-relaxed text-slate-600 max-w-2xl">
                 {description}
               </p>
             </div>

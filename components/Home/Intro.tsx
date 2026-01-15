@@ -1,5 +1,3 @@
-import { themeClasses } from "@/lib/themeClasses";
-
 function Intro() {
   return (
     <section className="bg-white font-nunito py-22 lg:py-28">

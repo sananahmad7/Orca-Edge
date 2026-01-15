@@ -1,5 +1,4 @@
 // components/Home/HowWeWork.tsx
-import { themeClasses } from "@/lib/themeClasses";
 import type { FC } from "react";
 import {
   FaBullhorn,

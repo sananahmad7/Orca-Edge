@@ -2,6 +2,8 @@
 import type { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
+// Import icons from react-icons
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer: FC = () => {
   const year = new Date().getFullYear();
@@ -28,6 +30,30 @@ const Footer: FC = () => {
               Digital experiences designed to perform. We build, market, and
               support the products that move your business forward.
             </p>
+
+            {/* --- Social Media Icons Added Here --- */}
+            <div className="flex items-center gap-5 mt-6">
+              <Link
+                href="https://www.linkedin.com" // Replace with your actual LinkedIn URL
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-[#1677B3] hover:-translate-y-1 transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={24} />
+              </Link>
+              <Link
+                href="https://www.instagram.com" // Replace with your actual Instagram URL
+                target="_blank"
+                rel="noopener noreferrer"
+                // Used specific hex for hover or keep it consistent with brand blue
+                className="text-slate-400 hover:text-[#1677B3] hover:-translate-y-1 transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={24} />
+              </Link>
+            </div>
+            {/* ------------------------------------ */}
           </div>
 
           {/* Services column */}

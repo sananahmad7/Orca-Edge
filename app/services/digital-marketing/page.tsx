@@ -61,26 +61,31 @@ const MARKETING_PROCESS_STEPS: ProcessStep[] = [
     title: "Audit & Strategy",
     description:
       "We begin with an in-depth review of your current digital presence, competition, and opportunities.",
+    image: "/audit.jpg",
   },
   {
     title: "Goal Setting & KPIs",
     description:
       "Together, we define clear, measurable objectives—such as leads, sales, or traffic growth.",
+    image: "/goal.jpg",
   },
   {
     title: "Campaign Planning & Setup",
     description:
       "We build a channel mix and campaign plan tailored to your goals and budget.",
+    image: "/planning.jpg",
   },
   {
     title: "Execution & Optimization",
     description:
       "We launch campaigns, monitor performance, and continuously optimize based on real data.",
+    image: "/optim.jpg",
   },
   {
     title: "Reporting & Insights",
     description:
       "You receive clear reports and recommendations, not just raw numbers.",
+    image: "/report.jpg",
   },
 ];
 

@@ -10,31 +10,37 @@ const webDevProcess: ProcessStep[] = [
     title: "Discovery & Strategy",
     description:
       "We analyze your business objectives, target audience, and competitors to define your website’s role in your overall digital strategy.",
+    image: "/strategy.jpg",
   },
   {
     title: "Information Architecture & UX",
     description:
       "We map out site structure, navigation, and user flows to make your website intuitive and easy to use.",
+    image: "/UX.jpg",
   },
   {
     title: "Design & Prototyping",
     description:
       "We create wireframes and visual designs that align with your brand identity and user expectations.",
+    image: "/planning.jpg",
   },
   {
     title: "Development & Integration",
     description:
       "Our developers turn designs into reality using best practices in front-end and back-end development, integrating CRM, analytics, and other third-party tools as needed.",
+    image: "/development.jpg",
   },
   {
     title: "Testing & Quality Assurance",
     description:
       "We test across devices and browsers, checking for performance, security, and usability before launch.",
+    image: "/report.jpg",
   },
   {
     title: "Launch & Training",
     description:
       "Once the site is live, we provide guidance or training so you and your team can manage content effectively.",
+    image: "/process.jpg",
   },
 ];
 export const webCapabilities = [

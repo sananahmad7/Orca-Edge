@@ -61,21 +61,25 @@ const COPYWRITING_PROCESS_STEPS: ProcessStep[] = [
     title: "Research & Discovery",
     description:
       "We learn about your business, audience, competitors, and existing messaging.",
+    image: "/audit.jpg",
   },
   {
     title: "Positioning & Messaging Strategy",
     description:
       "We define key messages, tone of voice, and the core benefits and differentiators we need to emphasize.",
+    image: "/strategy.jpg",
   },
   {
     title: "Draft & Review",
     description:
       "We create copy drafts and collaborate with you to refine wording, structure, and emphasis.",
+    image: "/copy.jpg",
   },
   {
     title: "Optimization & Finalization",
     description:
       "We polish the copy for clarity, persuasion, and SEO where relevant, ensuring it’s ready for design and publishing.",
+    image: "/optim.jpg",
   },
 ];
 

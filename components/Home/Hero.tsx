@@ -56,7 +56,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-5 xl:pt-4">
             <Link
               href="/aboutUs"
-              className="px-3 xl:px-8 py-3 bg-[#1677B3] cursor-pointer text-white font-bold rounded-sm hover:bg-[#126294] transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(22,119,179,0.4)] hover:shadow-[0_0_30px_rgba(22,119,179,0.6)]"
+              className="px-8 py-3 bg-[#1677B3] cursor-pointer text-white font-bold rounded-sm hover:bg-[#126294] transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(22,119,179,0.4)] hover:shadow-[0_0_30px_rgba(22,119,179,0.6)]"
             >
               <span>More About Us</span>
               <FaArrowRight className="w-3 h-3" />
@@ -66,7 +66,7 @@ const Hero = () => {
               href="/contact"
               className="px-8 py-3 rounded-sm border border-slate-500 cursor-pointer text-slate-200 font-medium hover:text-white hover:border-[#38bdf8] hover:bg-[#1677B3]/10 transition-colors duration-300 backdrop-blur-sm"
             >
-              Book a Free Consultation
+              <span>Book a Free Consultation</span>
             </Link>
           </div>
         </div>

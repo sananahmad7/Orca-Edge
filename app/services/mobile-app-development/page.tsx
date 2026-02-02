@@ -10,31 +10,37 @@ const mobileAppProcess: ProcessStep[] = [
     title: "Planning & Requirements",
     description:
       "We start by defining your app’s purpose, user roles, must-have features, and desired outcomes.",
+    image: "/planning.jpg",
   },
   {
     title: "UX & UI Design",
     description:
       "Our designers create intuitive user journeys and interfaces that are clean, consistent, and on-brand.",
+    image: "/UX.jpg",
   },
   {
     title: "Development",
     description:
       "We build using robust frameworks and best coding practices, focusing on performance, security, and scalability.",
+    image: "/development.jpg",
   },
   {
     title: "Testing & QA",
     description:
       "We rigorously test for functionality, usability, and performance across devices and operating systems.",
+    image: "/report.jpg",
   },
   {
     title: "Deployment",
     description:
       "We prepare and publish your app to the App Store and/or Google Play, managing the technical requirements and submissions.",
+    image: "/deployment.jpg",
   },
   {
     title: "Post-Launch Support",
     description:
       "Ongoing support to optimize performance, address user feedback, and roll out new features.",
+    image: "/launch.jpg",
   },
 ];
 

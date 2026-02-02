@@ -1,115 +1,97 @@
-// components/Home/WhyChooseUs.tsx
-import type { FC, ReactNode } from "react";
+"use client";
+import React from "react"; // Explicit import to solve 'Cannot find namespace JSX'
+import Image from "next/image";
+import { InFromLeft, InFromRight } from "@/lib/animation";
 import {
-  LuTarget,
-  LuLayers,
-  LuMessageSquare,
-  LuHandshake,
-  LuLifeBuoy,
-} from "react-icons/lu";
+  IoChatbubbleOutline,
+  IoHandLeftOutline,
+  IoHelpBuoyOutline,
+  IoPieChartOutline,
+  IoLayersOutline,
+  IoBulbOutline,
+} from "react-icons/io5";
 
-type Reason = {
-  id: string;
-  number: string;
-  title: string;
-  description: string;
-  icon: ReactNode;
-};
+const WhyChooseUs = () => {
+  const points = [
+    {
+      title: "Strategy First",
+      desc: "Every project is grounded in strategy.",
+      icon: <IoBulbOutline />,
+    },
+    {
+      title: "Seamless Delivery",
+      desc: "Design, dev, and copy work as one.",
+      icon: <IoLayersOutline />,
+    },
+    {
+      title: "Results Obsessed",
+      desc: "We track traffic, leads, and conversions.",
+      icon: <IoPieChartOutline />,
+    },
+    {
+      title: "Transparent Comms",
+      desc: "Clear timelines and honest updates.",
+      icon: <IoChatbubbleOutline />,
+    },
+    {
+      title: "Long-Term Partners",
+      desc: "We stay to support and scale with you.",
+      icon: <IoHandLeftOutline />,
+    },
+    {
+      title: "Ongoing Support",
+      desc: "We are a message away for tweaks.",
+      icon: <IoHelpBuoyOutline />,
+    },
+  ];
 
-const reasons: Reason[] = [
-  {
-    id: "strategy-first",
-    number: "01",
-    title: "Strategy First, Execution Second",
-    description:
-      "We don't start with trends; we start with your goals. Every website, campaign, or piece of content is grounded in strategy.",
-    // CHANGED: Teal -> Ocean Blue
-    icon: <LuTarget className="h-5 w-5 text-[#1677B3]" />,
-  },
-  {
-    id: "full-service",
-    number: "02",
-    title: "Full-Service, Seamless Delivery",
-    description:
-      "Design, development, marketing, and copy all work together as one cohesive system.",
-    icon: <LuLayers className="h-5 w-5 text-[#1677B3]" />,
-  },
-  {
-    id: "performance-obsessed",
-    number: "03",
-    title: "Performance & Results Obsessed",
-    description:
-      "We track traffic, leads, and conversions so every decision moves the needle.",
-    icon: <LuLifeBuoy className="h-5 w-5 text-[#1677B3]" />,
-  },
-  {
-    id: "transparent-communication",
-    number: "04",
-    title: "Transparent Communication",
-    description:
-      "Clear timelines, regular updates, and honest recommendations at every stage.",
-    icon: <LuMessageSquare className="h-5 w-5 text-[#1677B3]" />,
-  },
-  {
-    id: "long-term-partnerships",
-    number: "05",
-    title: "Long-Term Partnerships",
-    description:
-      "We don't just launch and leave. We stay to support, improve, and scale with you.",
-    icon: <LuHandshake className="h-5 w-5 text-[#1677B3]" />,
-  },
-  {
-    id: "reliable-support",
-    number: "06",
-    title: "Reliable Ongoing Support",
-    description:
-      "Questions, tweaks, or new ideas—we're a message away with responsive support.",
-    icon: <LuLifeBuoy className="h-5 w-5 text-[#1677B3]" />,
-  },
-];
-
-const WhyChooseUs: FC = () => {
   return (
-    <section className="font-nunito bg-white py-16">
-      <div className="container mx-auto px-4 md:px-8">
-        {/* Header */}
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl 2xl:text-4xl font-extrabold text-slate-900">
-            Why Choose <span className="text-[#1677B3]">Orca Edge?</span>
-          </h2>
-          <p className="mt-3 mx-auto max-w-2xl text-sm md:text-base text-slate-500">
-            We combine strategic thinking with clean execution to deliver
-            digital solutions that actually grow your business.
-          </p>
-        </div>
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+          {/* Left Side: Image container matches height of points */}
+          <InFromLeft className="relative min-h-[500px] lg:min-h-full rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/choose.jpg"
+              alt="Orca Edge Strategy"
+              fill
+              className="object-cover"
+            />
+          </InFromLeft>
 
-        {/* Reasons */}
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((reason) => (
-            <div key={reason.id} className="text-center group">
-              {/* Icon Circle (smaller, leaner) */}
-              {/* CHANGED: Border color to Blue/20 and added hover effect */}
-              <div className="mx-auto mb-4 flex h-18 w-18 items-center justify-center rounded-full border border-[#1677B3]/20 bg-slate-50 text-xl shadow-sm group-hover:border-[#1677B3] group-hover:shadow-md transition-all duration-300">
-                {reason.icon}
-              </div>
-
-              {/* Title */}
-              {/* CHANGED: Text color to match new dark blue tone */}
-              <h3 className="mb-2 text-base 2xl:text-xl  font-semibold text-slate-800 group-hover:text-[#1677B3] transition-colors">
-                {reason.title}
-              </h3>
-
-              {/* Description */}
-              <p className="mx-auto max-w-sm text-sm 2xl:text-base leading-relaxed text-slate-600">
-                {reason.description}
-              </p>
+          {/* Right Side: 6 Points container */}
+          <InFromRight className="flex flex-col">
+            <div className="mb-10">
+              <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                Why Partners Choose{" "}
+                <span className="text-[#1677B3]">Orca Edge</span>
+              </h2>
+              <div className="h-1 w-20 bg-[#1677B3] rounded-full"></div>
             </div>
-          ))}
-        </div>
 
-        {/* Subtle Divider */}
-        {/* CHANGED: Gradient to use Blue palette */}
-        <div className="mt-14 mx-auto h-px w-24 bg-gradient-to-r from-transparent via-[#1677B3] to-transparent" />
+            {/* Grid of 6 points - adjusted for density */}
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {points.map((point, index) => (
+                <div
+                  key={index}
+                  className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col justify-center gap-2 transition-all hover:shadow-md hover:border-[#1677B3]/20"
+                >
+                  <div className="text-[#1677B3] text-xl bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-slate-100">
+                    {point.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm md:text-base leading-tight">
+                      {point.title}
+                    </h4>
+                    <p className="text-slate-500 text-xs mt-1 leading-snug">
+                      {point.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </InFromRight>
+        </div>
       </div>
     </section>
   );
